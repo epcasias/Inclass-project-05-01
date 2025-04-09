@@ -28,34 +28,41 @@ let timeLeft = quizTime;
 // Declare the ID for timed commands
 let timeID;
 // and the node list for questions
-let questionList = document.querySelectorAll(div#quiz input);
-
+let questionList = document.querySelectorAll("div#quiz input");
+//step5
 startQuiz.onClick = function() {
-
-   overlay.classname ="showquiz";
+    overlay.className ="showquiz";
    timeID = windows.setInterval(countdown, 1000);
 }
-
+//step6
 function countdown() {
- if(timeLeft === 0) {
+ if(timeLeft == 0) 
+   {
+//step 6a
    clearInterval(timeID);
-
-   let totalCorrect = checkAnswers();
-
-   if (totalCorrect === correctAnswers.length) {
-      window.alert("Congrats! You got 100%");
-   } else{
-      timeLeft = quizTimequixClock.value = timeLeft;
-      overlay.className ="hidequiz";
-      window.alert("You answered Correct" +totalCorrect+"out of"+correctAnswers.length+ "questions");
+//step6b
+   let totalCorrect = checkAnswers()
+//step 6c
+   if (totalCorrect == correctAnswers.length) 
+      {
+      window.alert('Congrats! You got 100%')
    } 
-}else { //step
+   else
+   {
+      timeLeft= quizTime;
+      quizClock.value = timeLeft;
+      
+      overlay.className ="hidequiz";
+      window.alert('You answered Correct'+totalCorrect+'out of'+correctAnswers.length+ 'questions');
+   } 
+}
+else 
+{ 
+   //step 7
       timeLeft--;
-      quizClock.Value = timeLeft;
+      quizClock.Value = timeLeft
    }
  }
-
-
 
 
 
